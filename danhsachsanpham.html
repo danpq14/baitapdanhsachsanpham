@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        tr:nth-child(even) {background: #CCC}
+        tr:nth-child(odd) {background: #FFF}
+        tr {height: 30px}
+    </style>
+</head>
+<body>
+<h1>All New Product</h1>
+<br>
+<br>
+<input type="text" id="newproduct"> <button onclick="add()">Add</button>
+<br>
+<br>
+<p>Display All Product</p>
+<br>
+<br>
+<table border="0px" style="border: black" width="500px" height="40px" id="table">
+    <tr>
+        <td colspan="1">Product Name</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Sony Xperia</td>
+        <td align="center"><button onclick="edit()">Edit</button></td>
+        <td align="center"><button onclick="del()">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Samsung Galaxy</td>
+        <td align="center"><button onclick="edit()">Edit</button></td>
+        <td align="center"><button onclick="del()">Delete</button></td>
+    </tr>
+    <tr>
+    <td>Nokia 6</td>
+    <td align="center"><button onclick="edit()">Edit</button></td>
+    <td align="center"><button onclick="del()">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Xiaomi Redmi Note 4</td>
+        <td align="center"><button onclick="edit()">Edit</button></td>
+        <td align="center"><button onclick="del()">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Apple Iphone 6s</td>
+        <td align="center"><button onclick="edit()">Edit</button></td>
+        <td align="center"><button onclick="del()">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Xiaomi Mi 5s Plus</td>
+        <td align="center"><button onclick="edit()">Edit</button></td>
+        <td align="center"><button onclick="del()">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Apple Iphone 8 Plus</td>
+        <td align="center"><button onclick="edit()">Edit</button></td>
+        <td align="center"><button onclick="del()">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Fujitsu F-04E</td>
+        <td align="center"><button onclick="edit()">Edit</button></td>
+        <td align="center"><button onclick="del()">Delete</button></td>
+    </tr>
+    <tr>
+        <td>Oppo A71</td>
+        <td align="center"><button onclick="edit()">Edit</button></td>
+        <td align="center"><button onclick="del()">Delete</button></td>
+    </tr>
+
+    <tr id="new">
+
+</table>
+<script>
+    let product=['Sony Xperia','Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple Iphone 6s', 'Xiaomi Mi 5s Plus', 'Apple Iphone 8 Plus', 'Fujitsu F-04E', 'Oppo A71'];
+
+    function add() {
+        let newproduct=document.getElementById('newproduct').value;
+        product.push(newproduct);
+        let newtable;
+        newtable = '<table border="0px" style="border: black" width="500px" height="40px" id="table">' + '<tr>' + '<td colspan="1">Product Name</td>' + '<td></td>'+ '</tr>';
+
+        for (i=0;i<product.length;i++) {
+            newtable+='<tr><td>'+product[i] +'</td> <td align="center"><button onclick="edit('+i+')">Edit</button></td> <td align="center"><button onclick="del('+i+')">Delete</button></td></tr>'
+        }
+        document.getElementById('table').innerHTML = newtable;
+    }
+    function edit(x) {
+    product[x]=prompt('Change Name of Product : ');
+        let newtable;
+    newtable = '<table border="0px" style="border: black" width="500px" height="40px" id="table">' + '<tr>' + '<td colspan="1">Product Name</td>' + '<td></td>'+ '</tr>';
+
+    for (i=0;i<product.length;i++) {
+        newtable+='<tr><td>'+product[i] +'</td> <td align="center"><button onclick="edit('+i+')">Edit</button></td> <td align="center"><button onclick="del('+i+')">Delete</button></td></tr>'
+    }
+    document.getElementById('table').innerHTML = newtable;
+    }
+    function del(x) {
+    product[x]='';
+        let newtable;
+        newtable = '<table border="0px" style="border: black" width="500px" height="40px" id="table">' + '<tr>' + '<td colspan="1">Product Name</td>' + '<td></td>'+ '</tr>';
+
+        for (i=0;i<product.length;i++) {
+            newtable+='<tr><td>'+product[i] +'</td> <td align="center"><button onclick="edit('+i+')">Edit</button></td> <td align="center"><button onclick="del('+i+')">Delete</button></td></tr>'
+        }
+        document.getElementById('table').innerHTML = newtable;
+    }
+
+</script>
+</body>
+</html>
