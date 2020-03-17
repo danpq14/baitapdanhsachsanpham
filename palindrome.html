@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+        function isPalindrome(word) {
+            let array=word.split('');
+            console.log(array);
+            let flag;
+            for (i=0;i<array.length;i++) {
+                if (array[i]!== array[array.length-1-i]) {
+                    flag = false;
+                    break;
+                } else {
+                    flag = true;
+                }
+            } if (flag==true) {
+                console.log(flag)
+            } else {
+                console.log(flag)
+            }
+        }
+        document.write(isPalindrome(anna))
+
+
+</script>
+</body>
+</html>
